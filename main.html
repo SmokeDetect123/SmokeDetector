@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="main.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual Update Sensor Data</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;	
+            background-color: #90EE90;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        #data-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #AAFF00;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(170,255,0);
+        }
+
+        .detector-container {
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4caf50;
+            color: #fff;
+        }
+
+        input {
+            padding: 10px;
+            margin-bottom: 10px;
+            width: calc(50% - 12px);
+            display: inline-block;
+            box-sizing: border-box;
+        }
+
+        label {
+            width: 150px;
+            display: inline-block;
+            text-align: right;
+            margin-right: 20px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .alert {
+            color: #ff0000;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .highlight {
+            background-color: #ffcccc;
+        }
+
+        .sensor-info {
+            margin-top: 10px;
+        }
+
+        .sensor-info div {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="data-container">
+        <h2>Manual Update Sensor Data</h2>
+
+        <!-- Detector 1 -->
+        <div class="detector-container">
+            <h3>Detector 1</h3>
+
+            <label for="temperature-input1">Temperature (°C):</label>
+            <input type="number" id="temperature-input1" placeholder="Enter temperature" min="0" max="100">
+            <div id="temp-info1" class="sensor-info"></div>
+
+            <label for="humidity-input1">Humidity (%):</label>
+            <input type="number" id="humidity-input1" placeholder="Enter humidity" min="0" max="100">
+            <div id="humidity-info1" class="sensor-info"></div>
+
+            <label for="co2-input1">CO2 Level (ppm):</label>
+            <input type="number" id="co2-input1" placeholder="Enter CO2 level" min="0" max="1000">
+            <div id="co2-info1" class="sensor-info"></div>
+
+            <label for="h2-input1">H2 Level (ppm):</label>
+            <input type="number" id="h2-input1" placeholder="Enter H2 level" min="0" max="1000">
+            <div id="h2-info1" class="sensor-info"></div>
+
+            <button onclick="addCustomData(1)">Add Data for Detector 1</button>
+            <div id="alert1" class="alert"></div>
+        </div>
+
+        <!-- Detector 2 -->
+        <div class="detector-container">
+            <h3>Detector 2</h3>
+
+            <label for="temperature-input2">Temperature (°C):</label>
+            <input type="number" id="temperature-input2" placeholder="Enter temperature" min="0" max="100">
+            <div id="temp-info2" class="sensor-info"></div>
+
+            <label for="humidity-input2">Humidity (%):</label>
+            <input type="number" id="humidity-input2" placeholder="Enter humidity" min="0" max="100">
+            <div id="humidity-info2" class="sensor-info"></div>
+
+            <label for="co2-input2">CO2 Level (ppm):</label>
+            <input type="number" id="co2-input2" placeholder="Enter CO2 level" min="0" max="1000">
+            <div id="co2-info2" class="sensor-info"></div>
+
+            <label for="h2-input2">H2 Level (ppm):</label>
+            <input type="number" id="h2-input2" placeholder="Enter H2 level" min="0" max="1000">
+            <div id="h2-info2" class="sensor-info"></div>
+
+            <button onclick="addCustomData(2)">Add Data for Detector 2</button>
+            <div id="alert2" class="alert"></div>
+        </div>
+
+        <!-- Detector 3 -->
+        <div class="detector-container">
+            <h3>Detector 3</h3>
+
+            <label for="temperature-input3">Temperature (°C):</label>
+            <input type="number" id="temperature-input3" placeholder="Enter temperature" min="0" max="100">
+            <div id="temp-info3" class="sensor-info"></div>
+
+            <label for="humidity-input3">Humidity (%):</label>
+            <input type="number" id="humidity-input3" placeholder="Enter humidity" min="0" max="100">
+            <div id="humidity-info3" class="sensor-info"></div>
+
+            <label for="co2-input3">CO2 Level (ppm):</label>
+            <input type="number" id="co2-input3" placeholder="Enter CO2 level" min="0" max="1000">
+            <div id="co2-info3" class="sensor-info"></div>
+
+            <label for="h2-input3">H2 Level (ppm):</label>
+            <input type="number" id="h2-input3" placeholder="Enter H2 level" min="0" max="1000">
+            <div id="h2-info3" class="sensor-info"></div>
+
+            <button onclick="addCustomData(3)">Add Data for Detector 3</button>
+            <div id="alert3" class="alert"></div>
+        </div>
+
+        <table id="sensor-table">
+            <thead>
+                <tr>
+                    <th>Detector ID</th>
+                    <th>Status</th>
+                    <th>Sensor Data</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Data will be dynamically added here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Initialize data array with default values and limits
+        let detectorsData = [
+            { id: 1, status: 'N/A', temperature: 0, humidity: 0, co2: 0, h2: 0 },
+            { id: 2, status: 'N/A', temperature: 0, humidity: 0, co2: 0, h2: 0 },
+            { id: 3, status: 'N/A', temperature: 0, humidity: 0, co2: 0, h2: 0 },
+        ];
+
+        const limits = {
+            temperature: 80,
+            humidity: 70,
+            co2: 800,
+            h2: 1000,
+        };
+
+        // Update the table with the current data
+        function updateTable() {
+            const tableBody = document.getElementById('sensor-table').getElementsByTagName('tbody')[0];
+            tableBody.innerHTML = ''; // Clear existing rows
+
+            detectorsData.forEach((detector, index) => {
+                const row = tableBody.insertRow();
+                row.insertCell(0).textContent = `Detector ${detector.id}`;
+                row.insertCell(1).textContent = detector.status;
+                row.insertCell(2).innerHTML = getSensorDataHtml(detector);
+
+                // Highlight the row if values exceed limits
+                highlightRow(row, index + 1);
+            });
+        }
+
+        // Function to add custom data entered by the user
+        function addCustomData(detectorId) {
+            const temperatureInput = parseFloat(document.getElementById(`temperature-input${detectorId}`).value);
+            const humidityInput = parseFloat(document.getElementById(`humidity-input${detectorId}`).value);
+            const co2Input = parseFloat(document.getElementById(`co2-input${detectorId}`).value);
+            const h2Input = parseFloat(document.getElementById(`h2-input${detectorId}`).value);
+
+            // Validation
+            if (isNaN(temperatureInput) || isNaN(humidityInput) || isNaN(co2Input) || isNaN(h2Input)) {
+                alert('Please enter valid numeric values for all sensors.');
+                return;
+            }
+
+            detectorsData[detectorId - 1] = {
+                id: detectorId,
+                status: 'Custom',
+                temperature: temperatureInput,
+                humidity: humidityInput,
+                co2: co2Input,
+                h2: h2Input,
+            };
+
+            // Update the table with the custom data
+            updateTable();
+        }
+
+        // Function to check if entered values exceed predefined limits
+        function highlightRow(row, detectorId) {
+            const detector = detectorsData[detectorId - 1];
+
+            if (
+                detector.temperature > limits.temperature ||
+                detector.humidity > limits.humidity ||
+                detector.co2 > limits.co2 ||
+                detector.h2 > limits.h2
+            ) {
+                row.classList.add('highlight');
+                showPopupAlert(detectorId);
+            }
+        }
+
+        // Function to show a popup alert
+        function showPopupAlert(detectorId) {
+            alert(`Warning: Data for Detector ${detectorId} exceeds predefined limits.`);
+        }
+
+        // Function to get HTML for sensor data
+        function getSensorDataHtml(detector) {
+            return `<div>Temperature: ${detector.temperature.toFixed(2)}°C</div>` +
+                `<div>Humidity: ${detector.humidity.toFixed(2)}%</div>` +
+                `<div>CO2 Level: ${detector.co2.toFixed(2)} ppm</div>` +
+                `<div>H2 Level: ${detector.h2.toFixed(2)} ppm</div>`; // Displaying up to 2 decimal places
+        }
+
+        // Initial data load
+        updateTable();
+    </script>
+
+</body>
+</html>
