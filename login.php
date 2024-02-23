@@ -102,7 +102,7 @@
   		<button type="submit" class="btn" name="login_user">Login</button>
   	</div>
   	<p>
-  		Not yet a member? <a href="register.php">Sign up</a>
+  		Not yet a member? <a href="index.php">Sign up</a>
   	</p>
   </form>
 </body>
