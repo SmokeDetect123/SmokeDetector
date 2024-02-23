@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Predict Sensor Data</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;	
+            background-color: #ffffff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        #data-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #5F9EA0;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgb(241, 241, 241);
+        }
+
+        .detector-container {
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #ffffff;
+            color: #fff;
+        }
+
+        input {
+            padding: 10px;
+            margin-bottom: 10px;
+            width: calc(50% - 12px);
+            display: inline-block;
+            box-sizing: border-box;
+        }
+
+        label {
+            width: 150px;
+            display: inline-block;
+            text-align: right;
+            margin-right: 20px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .alert {
+            color: #ff0000;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .highlight {
+            background-color: #ffcccc;
+        }
+
+        .sensor-info {
+            margin-top: 10px;
+        }
+
+        .sensor-info div {
+            margin-bottom: 5px;
+        }
+    </style>
+    
+</head>
+<body>
+    <div id="data-container">
+    
+     <h1>Smoke Detector</h1>
+     <div class="detector-container">
+     <form id="sensor-form" action="/predict" method="POST">
+        <label for="temperature-input1">Temperature (°C):</label>
+        <input type="number" id="temperature-input1" name="temperature-input1" step="0.01" required><br><br>
+
+        <label for="humidity-input1">Humidity (%):</label>
+        <input type="number" id="humidity-input1" name="humidity-input1" step="0.01" required><br><br>
+
+        <label for="co2-input1">eCO2 (ppm):</label>
+        <input type="number" id="co2-input1" name="co2-input1" required><br><br>
+
+        <label for="h2-input1">Raw H2:</label>
+        <input type="number" id="h2-input1" name="h2-input1" step="0.01" required><br><br>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    <p>Prediction: <span id="prediction-result"></span></p>
+</div></div>
+    <script>
+        document.getElementById("sensor-form").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            // Get the form data
+            const formData = new FormData(this);
+
+            // Make a POST request to the Flask API
+            fetch("http://127.0.0.1:5000/predict", {
+                method: "POST",
+                body: formData,
+            })
+            .then(response => response.json())
+            .then(data => {
+                const flag = data.flag;
+                const predictionResult = document.getElementById("prediction-result");
+                predictionResult.textContent = ` ${flag}`;
+
+                if (flag === true) {
+                    // Show a pop-up if smoke is detected
+                    window.alert("Smoke Detected!");
+                }
+            })
+            .catch(error => console.error("Error:", error));
+        });
+    </script>
+</body>
+</html>
