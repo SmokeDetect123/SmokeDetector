@@ -1,58 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0; /* Setting a light background color for the body */
-        }
-        
-        h1 {
-            text-align: center;
-            background-color: #0074cc; /* Setting the background color of the heading */
-            color: white; /* Setting text color to white */
-            padding: 10px; /* Adding padding for better appearance */
-            margin-bottom: 20px; /* Add margin below heading */
-        }
-        .links {
-            margin-left: auto; /* Pushes links to the right */
-        }
-
-        .links a {
-            color: white; /* Setting text color to white */
-            text-decoration: none; /* Remove underline from links */
-            margin-left: 10px; /* Adding space between links */
-        } 
-
-	.photo-container {
-            display: flex;
-            justify-content: center; /* Centering the child elements */
-            margin-top: 20px; /* Adjust margin-top for spacing */
-        }
-        
-        .photo-container img {
-            max-width: 100%; /* Ensures the image doesn't exceed its container */
-            height: auto; /* Allows the image to scale proportionally */
-            margin: 0 10px; /* Adding margin between images */
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smoke Detector</title>
+<style>
+  body { font-family: Arial, sans-serif; }
+  .navbar { display: flex; justify-content: space-between; background-color: #333; padding: 10px; }
+  .navbar a { color: white; text-decoration: none; padding: 10px; }
+  .navbar a:hover { background-color: #ddd; color: black; }
+  .gallery { display: flex; flex-direction: column; align-items: flex-start; padding: 20px; }
+  .painting { display: flex; justify-content: space-between; width: 100%; margin-bottom: 20px; }
+  .painting img { width: 45%; height: auto; }
+  .painting .description { width: 45%; }
+</style>
 </head>
 <body>
-    <h1>Smoke Detector</h1>
-    <div class="header-links">
-        <a href="http://localhost/Project/login.php">Login</a>
-        <a href="http://localhost/Project/register.php">Register</a>
+
+<div class="navbar">
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#login">Login</a>
+  <a href="#signup">Signup</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<div class="gallery">
+  <div class="painting">
+    <div class="description">
+      <h3>Importance of somke detector</h3>
+      <p>Description of Painting One.</p>
     </div>
-    <div class="photo-container">
-        <div>
-            <img src="https://github.com/SmokeDetect123/SmokeDetector/blob/main/image.jpg/image.jpg" alt="Smoke Detector Photo 1">
-        </div>
-        <div>
-            <img src="C:\xampp\htdocs\Project/image.jpg" alt="Smoke Detector Photo 2">
-        </div>
+    <img src="painting1.jpg" alt="Painting 1">
+  </div>
+  <div class="painting">
+    <div class="description">
+      <h3>Title Two</h3>
+      <p>Description of Painting Two.</p>
     </div>
+    <img src="painting2.jpg" alt="Painting 2">
+  </div>
+  <div class="painting">
+    <div class="description">
+      <h3>Title Three</h3>
+      <p>Description of Painting Three.</p>
+    </div>
+    <img src="painting3.jpg" alt="Painting 3">
+  </div>
+</div>
+
 </body>
 </html>
-
