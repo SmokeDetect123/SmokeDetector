@@ -6,13 +6,56 @@
 <title>Smoke Detector</title>
 <style>
   body { font-family: Arial, sans-serif; }
-  .navbar { display: flex; justify-content: space-between; background-color: #333; padding: 10px; }
-  .navbar a { color: white; text-decoration: none; padding: 10px; }
-  .navbar a:hover { background-color: #ddd; color: black; }
-  .gallery { display: flex; flex-direction: column; align-items: flex-start; padding: 20px; }
-  .painting { display: flex; justify-content: space-between; width: 100%; margin-bottom: 20px; }
-  .painting img { width: 45%; height: auto; }
-  .painting .description { width: 45%; }
+  .container { 
+    background-color: #f0f8ff; /* Light blue background */
+    padding: 20px; 
+    border-radius: 10px; /* Rounded corners */
+  }
+  .navbar { 
+    display: flex; 
+    justify-content: space-between; 
+    background-color: #333; 
+    padding: 10px; 
+  }
+  .navbar a { 
+    color: white; 
+    text-decoration: none; 
+    padding: 10px; 
+  }
+  .navbar a:hover { 
+    background-color: #ddd; 
+    color: black; 
+  }
+  .gallery { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: flex-start; 
+    padding: 20px; 
+  }
+  .painting { 
+    display: flex; 
+    justify-content: space-between; 
+    width: 100%; 
+    margin-bottom: 20px; 
+  }
+  .painting img { 
+    width: 45%; 
+    height: auto; 
+  }
+  .painting .description { 
+    width: 45%; 
+  }
+  .painting .description p { 
+    margin-bottom: 10px; 
+    padding-bottom: 10px; 
+    border-bottom: 1px solid #ccc; 
+  }
+  .yellow-background { 
+    background-color: #FFFF99; /* Yellow background */
+    padding: 10px; 
+    border-radius: 5px; /* Rounded corners */
+    margin-bottom: 10px; /* Add some margin to separate from paragraphs */
+  }
 </style>
 </head>
 <body>
@@ -28,32 +71,37 @@
 <div class="gallery">
   <div class="painting">
     <div class="description">
-      <h3>Importance of smoke detector</h3>
-      <p>A smoke detector is a device that sense smoke, typically as an indicator of a fire.
-       Commercial security devices issue a signal to a fire alarm control panel as a part of
-       a fire alarm system.  
-        Smoke detectors are housed in plastic containers , smoke detectors are typically shaped like a disk or
-        square about 150 millimeters (6 in) in diameter and 25millimeters (1 in) thick, but
-        shape and size vary. </p>
+      <div class="container">
+        <div class="yellow-background">
+          <h3>Importance of smoke detector</h3>
+        </div>
+        <p>A smoke detector is a device that senses smoke, typically as an indicator of a fire. Commercial security devices issue a signal to a fire alarm control panel as a part of a fire alarm system.</p>
+        <p>Smoke detectors are housed in plastic containers. They are typically shaped like a disk or square about 150 millimeters (6 in) in diameter and 25 millimeters (1 in) thick, but the shape and size vary.</p>
+      </div>
     </div>
     <img src="https://github.com/SmokeDetect123/SmokeDetector/raw/main/image.jpg" alt="Painting 1">
   </div>
   <div class="painting">
     <div class="description">
-      <h3>Traditional Smoke Detector</h3>
-      <p>Traditional smoke detectors also known as Ionisation smoke detector mainly consists of a detector chamber and a small
-       amount of radioactive element. Such a radioactive material will emit radiation consisted of alpha particles when the alpha particles are produced, 
-        they will collide with the air particles inside the ionization chamber. Thus causing air particles to be ionized which leads to formation of small amount 
-        electric current in the chamber. And when the smoke enters the chamber electron flow is interrupted hence the alarm is sounded. When the smoke is 
-        cleared and electron flow resumes the alarm stops sounding. </p>
+      <div class="container">
+        <div class="yellow-background">
+          <h3>Traditional Smoke Detector</h3>
+        </div>
+        <p>Traditional smoke detectors, also known as Ionisation smoke detectors, mainly consist of a detector chamber and a small amount of radioactive element.</p>
+        <p>Such a radioactive material will emit radiation consisted of alpha particles. When the alpha particles are produced, they will collide with the air particles inside the ionization chamber, causing air particles to be ionized, which leads to the formation of a small amount of electric current in the chamber.</p>
+        <p>When the smoke enters the chamber, electron flow is interrupted, hence the alarm is sounded. When the smoke is cleared and electron flow resumes, the alarm stops sounding.</p>
+      </div>
     </div>
     <img src="https://github.com/SmokeDetect123/SmokeDetector/raw/main/image 2.jpg" alt="Painting 2">
   </div>
   <div class="painting">
     <div class="description">
-      <h3>IOT Smoke Detector</h3>
-      <p>An IoT based fire alarming system can detect fire as well as providing the location where the fire occurred When a fire occurred, the system will send a
-       message. Once confirmed by the user, whether it is fire or not further action can be taken.</p>
+      <div class="container">
+        <div class="yellow-background">
+          <h3>IOT Smoke Detector</h3>
+        </div>
+        <p>An IoT-based fire alarming system can detect fire as well as providing the location where the fire occurred. When a fire occurred, the system will send a message. Once confirmed by the user, whether it is fire or not, further action can be taken.</p>
+      </div>
     </div>
     <img src="https://github.com/SmokeDetect123/SmokeDetector/raw/main/image 3.jpg" alt="Painting 3">
   </div>
