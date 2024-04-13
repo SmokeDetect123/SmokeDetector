@@ -81,29 +81,66 @@
             border: 1px solid #3c763d;
             margin-bottom: 20px;
         }
-    </style>
+
+        /* Navbar styles */
+        .navbar {
+            background-color: #333; /* Dark background */
+            overflow: hidden;
+            position: fixed; /* Fixed position at the top */
+            top: 0;
+            width: 100%;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: white; /* White text */
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd; /* Light grey background on hover */
+            color: black; /* Black text on hover */
+        }
+
+        /* Push content down to avoid overlap with fixed navbar */
+        body {
+            padding-top: 50px;
+        }
+  </style>
 </head>
 <body>
-  <div class="header">
-  	<h2>Login</h2>
-  </div>
-	 
-  <form method="post" action="login.php">
-  	<?php include('errors.php'); ?>
-  	<div class="input-group">
-  		<label>Username</label>
-  		<input type="text" name="username" >
-  	</div>
-  	<div class="input-group">
-  		<label>Password</label>
-  		<input type="password" name="password">
-  	</div>
-  	<div class="input-group">
-  		<button type="submit" class="btn" name="login_user">Login</button>
-  	</div>
-  	<p>
-  		Not yet a member? <a href="index.php">Sign up</a>
-  	</p>
-  </form>
+
+<div class="navbar">
+  <a href="index.html">Home</a>
+  <a href="http://localhost/Project/about.php">About</a>
+  <a href="http://localhost/Project/login.php">Login</a>
+  <a href="http://localhost/Project/register.php">Signup</a>
+</div>
+
+<div class="header">
+    <h2>Login</h2>
+</div>
+
+<form method="post" action="login.php">
+    <?php include('errors.php'); ?>
+    <div class="input-group">
+        <label>Username</label>
+        <input type="text" name="username" >
+    </div>
+    <div class="input-group">
+        <label>Password</label>
+        <input type="password" name="password">
+    </div>
+    <div class="input-group">
+        <button type="submit" class="btn" name="login_user">Login</button>
+    </div>
+    <p>
+        Not yet a member? <a href="index.php">Sign up</a>
+    </p>
+</form>
+
 </body>
 </html>
